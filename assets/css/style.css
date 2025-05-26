@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.heading {
+    font-size: 5vw;
+    color: #fff;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-flex-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#gallery-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slides {
+    width: 100%;
+    height: 300vh;
+    rotate: -19deg;
+    gap: 2vh;
+}
+
+.slide {
+    width: 250%;
+    height: 40vh;
+    gap: 2vh;
+}
+
+.slide-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 100%;
+    ;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.slide-img img {
+    width: 100%;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background-color: black; */
+
+}
+
+
+
+.slide1,
+.slide3,
+.slide5 {
+    transition: all ease 0.5s;
+}
+
+.slide2,
+.slide4 {
+    transition: all ease 0.8s;
+}
+
+
+@media (max-width: 1024px) {
+    .slides {
+        rotate: -10deg;
+        height: 250vh;
+        gap: 2vh;
+    }
+
+    .slide {
+        width: 200%;
+        height: 30vh;
+    }
+
+    .slide-img {
+        width: 40vw;
+        height: auto;
+    }
+
+    .heading {
+        font-size: 6vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .slides {
+        rotate: -5deg;
+        height: 200vh;
+        gap: 2vh;
+    }
+
+    .slide {
+        width: 150%;
+        height: 25vh;
+    }
+
+    .slide-img {
+        width: 70vw;
+        height: auto;
+    }
+
+    .heading {
+        font-size: 8vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .slides {
+        rotate: 0deg;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .slide {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .slide-img {
+        width: 90vw;
+        height: auto;
+        margin: 1vh 0;
+    }
+
+    .heading {
+        font-size: 10vw;
+        text-align: center;
+    }
+
+    .overlay {
+        height: auto;
+        padding: 2rem 0;
+    }
+}
