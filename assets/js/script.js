@@ -1,3 +1,30 @@
+
+Shery.textAnimate(".heading", {
+    style: 1,
+    y: 10,
+    delay: 0.1,
+    duration: 2,
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+    multiplier: 0.1,
+});
+
+gsap.from(".logo", {
+    y: -50,
+    opacity: 0,
+    duration: 1,
+
+})
+
+gsap.from(".social-link", {
+    scale: 1.9,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    delay: 0.5,
+})
+
+
+
 // filter.js
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -22,10 +49,33 @@ filterBtns.forEach(btn => {
 
 
 
+const toggleBtn = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+let isMenuOpen = false;
+gsap.set(menu, { height: 0, opacity: 0, display: "none" });
 
-Shery.imageEffect(".images", {
-    style: 6,
-    // debug: true,
-    gooey: true,
-    config: { "uFrequencyX": { "value": 12, "range": [0, 100] }, "uFrequencyY": { "value": 12, "range": [0, 100] }, "uFrequencyZ": { "value": 10, "range": [0, 100] }, "geoVertex": { "range": [1, 64], "value": 32 }, "zindex": { "value": -9996999, "range": [-9999999, 9999999] }, "aspect": { "value": 1 }, "ignoreShapeAspect": { "value": true }, "shapePosition": { "value": { "x": 0, "y": 0 } }, "shapeScale": { "value": { "x": 0.5, "y": 0.5 } }, "shapeEdgeSoftness": { "value": 0, "range": [0, 0.5] }, "shapeRadius": { "value": 0.02, "range": [0, 2] }, "currentScroll": { "value": 0 }, "scrollLerp": { "value": 0.07 }, "gooey": { "value": true }, "infiniteGooey": { "value": true }, "growSize": { "value": 3.24, "range": [1, 15] }, "durationOut": { "value": 1, "range": [0.1, 5] }, "durationIn": { "value": 1.5, "range": [0.1, 5] }, "displaceAmount": { "value": 0.5 }, "masker": { "value": true }, "maskVal": { "value": 1.27, "range": [1, 5] }, "scrollType": { "value": 0 }, "noEffectGooey": { "value": true }, "onMouse": { "value": 1 }, "noise_speed": { "value": 0.2, "range": [0, 10] }, "metaball": { "value": 0.2, "range": [0, 2], "_gsap": { "id": 3 } }, "discard_threshold": { "value": 0.5, "range": [0, 1] }, "antialias_threshold": { "value": 0.01, "range": [0, 0.1] }, "noise_height": { "value": 0.5, "range": [0, 2] }, "noise_scale": { "value": 10, "range": [0, 100] } },
+toggleBtn.addEventListener("click", () => {
+    if (isMenuOpen) {        gsap.to(menu, {
+            height: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.inOut",
+            onComplete: () => {
+                menu.style.display = "none";
+            }
+        });
+    } else {
+        menu.style.display = "flex";
+        gsap.fromTo(
+            menu,
+            { height: 0, opacity: 0 },
+            {
+                height: "auto",
+                opacity: 1,
+                duration: 0.5,
+                ease: "power2.out"
+            }
+        );
+    }
+    isMenuOpen = !isMenuOpen;
 });
