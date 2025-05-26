@@ -21,6 +21,7 @@ gsap.from(".social-link", {
     duration: 1,
     stagger: 0.2,
     delay: 0.5,
+    ease: "power2.out",
 })
 
 
